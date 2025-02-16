@@ -7,3 +7,5 @@ Source: The Udemy Course: "Learn NextJS 15 from the ground up and build fullstac
 This project is created from scratch with other settings than the course-project:
 - App in in /src directory
 - Typescript is used
+  
+  Everything is in Typescript and no 'any' is used.
