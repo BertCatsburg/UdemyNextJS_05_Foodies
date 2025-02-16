@@ -1,16 +1,10 @@
-import './globals.css';
+import React from "react";
+import styles from './background.module.css'
 
-export const metadata = {
-    title: 'NextLevel Food',
-    description: 'Delicious meals, shared by a food-loving community.',
-};
-
-export default function RootLayout({children}) {
+export const Background = () => {
     return (
-        <html lang="en">
-        <body>
-        <div className="header-background">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <div className={styles.headerbackground}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className={styles.background}>
                 <defs>
                     <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                         <stop
@@ -29,9 +23,5 @@ export default function RootLayout({children}) {
                 ></path>
             </svg>
         </div>
-
-        {children}
-        </body>
-        </html>
-    );
+    )
 }
