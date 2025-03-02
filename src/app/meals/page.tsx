@@ -1,8 +1,14 @@
 import styles from './page.module.css'
 import Link from "next/link";
 import {MealsGrid} from "@/uicomponents";
+import {getMeals} from "@/lib";
 
-const MealsPage = () => {
+const MealsPage = async () => {
+
+    const meals = await getMeals()
+    console.log('Meals Page')
+    console.log(meals)
+
     return (
         <>
             <header className={styles.header}>

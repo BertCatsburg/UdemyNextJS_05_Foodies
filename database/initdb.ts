@@ -191,12 +191,7 @@ async function initDb() {
         const sql = 'INSERT INTO meals ' +
             '(id, slug, title, image, summary, instructions, creator, creator_email) ' +
             'VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
-        console.log(`Length of Meals = ${dummyMeals.length}`)
         for (const meal of dummyMeals) {
-            console.log('About to insert record')
-            const mealSlug = {"slug": meal['slug']}
-            console.log(mealSlug)
-
             const result = await db.run(sql, [
                 null,
                 meal.title,
@@ -208,13 +203,10 @@ async function initDb() {
                 meal.creator_email,
             ])
             console.log(`Slug [${meal.slug}]; ID = ${result.lastID}`)
-
         }
-
     } catch (e) {
         console.error(`Error on database ${e}`)
     }
-
 }
 
 initDb();
