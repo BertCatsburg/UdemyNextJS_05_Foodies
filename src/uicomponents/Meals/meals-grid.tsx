@@ -6,7 +6,6 @@ type MealsGridType = {
     meals: MealsType[]
 }
 
-
 export const MealsGrid = ({meals}: MealsGridType) => {
     return (
         <ul className={styles.meals}>

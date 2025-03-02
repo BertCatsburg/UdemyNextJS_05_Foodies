@@ -1,5 +1,6 @@
 import styles from './page.module.css'
 import Link from "next/link";
+import {MealsGrid} from "@/uicomponents";
 
 const MealsPage = () => {
     return (
@@ -12,7 +13,7 @@ const MealsPage = () => {
                 </p>
             </header>
             <main className={styles.main}>
-
+                <MealsGrid meals={[]}/>
             </main>
         </>
     );

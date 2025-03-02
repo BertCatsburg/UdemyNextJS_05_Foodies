@@ -4,5 +4,7 @@ export type MealsType = {
     slug: string;
     image: string;
     summary: string;
+    instructions: string;
     creator: string;
+    creator_email: string;
 }
