@@ -5,7 +5,7 @@ import {getMeals} from "@/lib";
 
 const MealsPage = async () => {
 
-    const meals = await getMeals()
+    const meals = getMeals()
     console.log('Meals Page')
     console.log(meals)
 
