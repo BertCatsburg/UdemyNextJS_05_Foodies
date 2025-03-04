@@ -1,5 +1,5 @@
 export type MealsType = {
-    id: string;
+    id: number;
     title: string;
     slug: string;
     image: string;
@@ -8,3 +8,4 @@ export type MealsType = {
     creator: string;
     creator_email: string;
 }
+

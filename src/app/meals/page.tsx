@@ -2,12 +2,11 @@ import styles from './page.module.css'
 import Link from "next/link";
 import {MealsGrid} from "@/uicomponents";
 import {getMeals} from "@/lib";
+import {MealsType} from "@/types";
 
 const MealsPage = async () => {
 
-    const meals = getMeals()
-    console.log('Meals Page')
-    console.log(meals)
+    const meals: MealsType[] = getMeals()
 
     return (
         <>
@@ -19,7 +18,7 @@ const MealsPage = async () => {
                 </p>
             </header>
             <main className={styles.main}>
-                <MealsGrid meals={[]}/>
+                <MealsGrid meals={meals}/>
             </main>
         </>
     );
