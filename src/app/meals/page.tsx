@@ -1,13 +1,22 @@
+import {Suspense} from 'react'
 import styles from './page.module.css'
-import Link from "next/link";
-import {MealsGrid} from "@/uicomponents";
-import {getMeals} from "@/lib";
-import {MealsType} from "@/types";
+import Link from "next/link"
+import {MealsGrid} from "@/uicomponents"
+import {getMeals} from "@/lib"
+import {MealsType} from "@/types"
+import {MealsLoadingPage} from './loading-out'
 
-const MealsPage = async () => {
+// The section which has the Loading message whilst loading
+async function Meals() {
+    const meals: MealsType[] = await getMeals() // Get the Data
 
-    const meals: MealsType[] = getMeals()
+    return (
+        <MealsGrid meals={meals}/>
+    )
+}
 
+// The actual Page
+const MealsPage = () => {
     return (
         <>
             <header className={styles.header}>
@@ -18,7 +27,9 @@ const MealsPage = async () => {
                 </p>
             </header>
             <main className={styles.main}>
-                <MealsGrid meals={meals}/>
+                <Suspense fallback={<MealsLoadingPage />}>
+                    <Meals/>
+                </Suspense>
             </main>
         </>
     );
