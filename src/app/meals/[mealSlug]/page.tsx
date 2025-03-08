@@ -5,33 +5,35 @@ import {getMeal} from "@/lib";
 
 interface MealsDetailsPageInterface {
     params: Promise<{
-        slug: string
+        mealSlug: string
     }>
 }
 
 const MealsDetailsPage = async ({params}: MealsDetailsPageInterface) => {
-    const {slug} = await params
+    const {mealSlug} = await params
+    const meal = getMeal(mealSlug)
 
-    const meal = getMeal(slug)
-    console.log(meal)
+    console.log(meal.instructions)
+    const mealInstructions = meal.instructions.replaceAll('\n', '<br />')
+    console.log(mealInstructions)
 
     return (
         <>
             <header className={classes.header}>
                 <div className={classes.image}>
-                    <Image src="" alt="" fill/>
+                    <Image src={meal.image} alt="" fill/>
                 </div>
                 <div className={classes.headerText}>
-                    <h1>TITLE</h1>
+                    <h1>{meal.title}</h1>
                     <p className={classes.creator}>
-                        by <a href={`mailto:${'EMAIL'}`}>NAME</a>
+                        by <a href={`mailto:${meal.creator_email}`}>{meal.creator}</a>
                     </p>
-                    <p className={classes.summary}>SUMMARY</p>
+                    <p className={classes.summary}>{meal.summary}</p>
                 </div>
             </header>
             <main>
                 <p className={classes.instructions} dangerouslySetInnerHTML={{
-                    __html: '...'
+                    __html: mealInstructions
                 }}></p>
             </main>
         </>

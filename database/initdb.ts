@@ -194,8 +194,8 @@ async function initDb() {
         for (const meal of dummyMeals) {
             const result = await db.run(sql, [
                 null,
-                meal.title,
                 meal.slug,
+                meal.title,
                 meal.image,
                 meal.summary,
                 meal.instructions,

@@ -7,15 +7,16 @@ import {MealsType} from "@/types"
 import {MealsLoadingPage} from './loading-out'
 
 // The section which has the Loading message whilst loading
-async function Meals() {
+const Meals = async ()=> {
     const meals: MealsType[] = await getMeals() // Get the Data
 
+    console.log(meals)
     return (
         <MealsGrid meals={meals}/>
     )
 }
 
-// The actual Page
+// The actual Page for all the Meals
 const MealsPage = () => {
     return (
         <>
