@@ -1,6 +1,7 @@
 import * as React from 'react'
 import classes from './page.module.css'
 import Image from "next/image";
+import { notFound} from "next/navigation";
 import {getMeal} from "@/lib";
 
 interface MealsDetailsPageInterface {
@@ -12,6 +13,11 @@ interface MealsDetailsPageInterface {
 const MealsDetailsPage = async ({params}: MealsDetailsPageInterface) => {
     const {mealSlug} = await params
     const meal = getMeal(mealSlug)
+
+    if (!meal) {
+        // Show closest NotFoundPage
+        notFound()
+    }
 
     console.log(meal.instructions)
     const mealInstructions = meal.instructions.replaceAll('\n', '<br />')
