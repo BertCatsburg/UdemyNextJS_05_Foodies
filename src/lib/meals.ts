@@ -12,3 +12,13 @@ export const getMeals= async (): Promise<MealsType[]> => {
     return stmt.all() as MealsType[];
 }
 
+export const getMeal = async (slug: string): Promise<MealsType> => {
+    const options: DB.Options = {fileMustExist: true, verbose: console.log}
+    const db = new DB('./data/foodies.db', options)
+
+    const stmt: DB.Statement = db.prepare('SELECT * FROM meals WHERE slug = ?')
+
+    return stmt.get(slug) as MealsType
+}
+
+

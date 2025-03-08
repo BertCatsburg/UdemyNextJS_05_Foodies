@@ -1,4 +1,5 @@
-import {getMeals, MealsType} from "@/lib/meals";
+import {getMeals, getMeal} from "@/lib/meals";
+import {MealsType} from "@/types";
 
-export {getMeals}
+export {getMeals, getMeal}
 export type {MealsType}
