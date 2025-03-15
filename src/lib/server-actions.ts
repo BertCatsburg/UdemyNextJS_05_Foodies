@@ -1,13 +1,19 @@
 'use server'
 
+import {redirect} from 'next/navigation'
+import {saveMeal} from "@/lib/meals";
+import {MealsTypeOnScreen} from '@/types'
+
 export const shareMeal = async (formData: FormData) => {
-    const meal = {
-        title: formData.get('title'),
-        image: formData.get('image'),
-        summary: formData.get('summary'),
-        instructions: formData.get('instructions'),
-        creator: formData.get('creator'),
-        creator_email: formData.get('creator_email'),
+    const meal: MealsTypeOnScreen = {
+        title: formData.get('title') as string ?? "",
+        image: formData.get('image') as File ?? "",
+        summary: formData.get('summary') as string ?? "",
+        instructions: formData.get('instructions') as string ?? "",
+        creator: formData.get('creator') as string ?? "",
+        creator_email: formData.get('creator_email') as string ?? "",
     }
-    console.log(meal)
+    await saveMeal(meal)
+
+    redirect("/meals")
 }
