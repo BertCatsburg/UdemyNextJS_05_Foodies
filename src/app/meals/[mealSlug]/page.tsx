@@ -12,7 +12,7 @@ interface MealsDetailsPageInterface {
 
 const MealsDetailsPage = async ({params}: MealsDetailsPageInterface) => {
     const {mealSlug} = await params
-    const meal = getMeal(mealSlug)
+    const meal = await getMeal(mealSlug)
 
     if (!meal) {
         // Show closest NotFoundPage

@@ -1,3 +1,5 @@
+'use server'
+
 import DB from 'better-sqlite3'
 import {MealsType, MealsTypeOnScreen} from "@/types"
 import slugify from "slugify"
@@ -16,7 +18,7 @@ export const getMeals= async (): Promise<MealsType[]> => {
     return stmt.all() as MealsType[];
 }
 
-export const getMeal = (slug: string): MealsType => {
+export const getMeal = async (slug: string): Promise<MealsType> => {
     const options: DB.Options = {fileMustExist: true, verbose: console.log}
     const db = new DB('./data/foodies.db', options)
 
