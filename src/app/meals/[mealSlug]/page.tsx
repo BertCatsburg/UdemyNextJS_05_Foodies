@@ -27,7 +27,7 @@ const MealsDetailsPage = async ({params}: MealsDetailsPageInterface) => {
         <>
             <header className={classes.header}>
                 <div className={classes.image}>
-                    <Image src={meal.image} alt="" fill/>
+                    <Image src={`https://nextjscourse.s3.us-east-1.amazonaws.com/${meal.image}`} alt="" fill/>
                 </div>
                 <div className={classes.headerText}>
                     <h1>{meal.title}</h1>

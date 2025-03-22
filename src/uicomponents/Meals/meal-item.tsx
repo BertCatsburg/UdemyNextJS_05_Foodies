@@ -8,7 +8,7 @@ export const MealItem = ({ title, slug, image, summary, creator }: MealsType) =>
         <article className={classes.meal}>
             <header>
                 <div className={classes.image}>
-                    <Image src={image} alt={title} fill sizes="(max-width: 1200px) 100%" priority={true} />
+                    <Image src={`https://nextjscourse.s3.us-east-1.amazonaws.com/${image}`} alt={title} fill sizes="(max-width: 1200px) 100%" priority={true} />
                 </div>
                 <div className={classes.headerText}>
                     <h2>{title}</h2>

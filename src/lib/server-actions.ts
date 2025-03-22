@@ -3,6 +3,7 @@
 import {redirect} from 'next/navigation'
 import {saveMeal} from "@/lib/meals";
 import {MealsTypeOnScreen} from '@/types'
+import {revalidatePath} from "next/cache";
 
 const isInvalidText = (text: string | null) => {
     return !text || text.trim() == '';
@@ -42,6 +43,6 @@ export const shareMeal = async (prevState: State, formData: FormData): Promise<{
     }
 
     await saveMeal(meal)
-
+    revalidatePath("/meals", "layout")
     redirect("/meals")
 }

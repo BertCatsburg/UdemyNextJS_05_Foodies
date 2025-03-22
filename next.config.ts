@@ -10,6 +10,17 @@ const nextConfig: NextConfig = {
             }
         }
         return config
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'nextjscourse.s3.us-east-1.amazonaws.com',
+                port: '',
+                pathname: '',
+                search: '',
+            }
+        ]
     }
 };
 
