@@ -10,6 +10,13 @@ interface MealsDetailsPageInterface {
     }>
 }
 
+export async function generateMetadata({params}: MealsDetailsPageInterface) {
+    const {mealSlug} = await params
+    return {
+        title: `Slug = ${mealSlug}`
+    }
+}
+
 const MealsDetailsPage = async ({params}: MealsDetailsPageInterface) => {
     const {mealSlug} = await params
     const meal = await getMeal(mealSlug)

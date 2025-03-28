@@ -6,6 +6,9 @@ import {getMeals} from "@/lib"
 import {MealsType} from "@/types"
 import {MealsLoadingPage} from './loading-out'
 
+export const metadata = {
+    title: 'MEALS',
+};
 // The section which has the Loading message whilst loading
 const Meals = async ()=> {
     const meals: MealsType[] = await getMeals() // Get the Data
